@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Index</title>
+</head>
+<body>
+    <form action="{% url 'thanks' %}" method="POST">
+        {% csrf_token %}
+        <label>Name</label>
+        <input name="name">
+        <label>Phone</label>
+        <input name="phone">
+        <button type="submit">Send</button>
+    </form>
+    {% if order_list %}
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>phone</th>
+            <th>date</th>
+        </tr>
+        {% for e in order_list %}
+            <tr>
+                <td>{{e.pk}}</td>
+                <td>{{e.order_name}}</td>
+                <td>{{e.order_phone}}</td>
+                <td>{{e.order_dt}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <h2>No data!</h2>
+    {% endif %}
+</body>
+</html>
