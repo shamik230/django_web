@@ -8,8 +8,10 @@ from .forms import OrderForm
 def index(request):
     order_list = Order.objects.all()
     form = OrderForm()
-    data = {"order_list": order_list,
-            "form": form}
+    data = {
+        "order_list": order_list,
+        "form": form,
+    }
     return render(request, "index.html", data)
 
 

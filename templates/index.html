@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% block title %} Index {% endblock %}
+
 {% block content %}
 <form action="{% url 'thanks' %}" method="POST">
         {% csrf_token %}
@@ -27,4 +29,4 @@
     {% else %}
         <h2>No data!</h2>
     {% endif %}
-{%endblock%}
+{% endblock %}

@@ -1,5 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Thanks {% endblock %}
 
 {% block content %}
 <h1>Спасибо, данные отправлены.</h1>
+<form action="{% url 'index' %}" method="get">
+    <button type="submit">Back</button>
+</form>
+<br>
+<img src="{% static 'img/cat.jpg' %}" alt="Caracal" width="300">
 {% endblock %}
