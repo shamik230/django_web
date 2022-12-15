@@ -1,12 +1,15 @@
 from django.shortcuts import render
 from .models import Order
+from .forms import OrderForm
 
 # Create your views here.
 
 
 def index(request):
     order_list = Order.objects.all()
-    data = {"order_list": order_list}
+    form = OrderForm()
+    data = {"order_list": order_list,
+            "form": form}
     return render(request, "index.html", data)
 
 
